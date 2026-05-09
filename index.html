@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breshta Pizza | برشتا بيتزا</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #D41E1E;
+    --dark-red: #A01010;
+    --yellow: #F5A623;
+    --cream: #F5F0E8;
+    --dark: #1A1A1A;
+    --text: #2C2C2C;
+    --light-gray: #F8F6F2;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+font-family: ‘Cairo’, sans-serif;
+background: var(–dark);
+color: var(–cream);
+overflow-x: hidden;
+}
+
+/* ===== NAV ===== */
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1000;
+background: rgba(26,26,26,0.95);
+backdrop-filter: blur(12px);
+border-bottom: 2px solid var(–red);
+padding: 0 5%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 70px;
+}
+
+.nav-logo {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.nav-logo .logo-icon {
+width: 48px;
+height: 48px;
+background: var(–red);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: ‘Bebas Neue’, cursive;
+font-size: 18px;
+letter-spacing: 1px;
+}
+
+.nav-logo span {
+font-family: ‘Bebas Neue’, cursive;
+font-size: 22px;
+letter-spacing: 2px;
+color: white;
+}
+
+.nav-links {
+display: flex;
+gap: 32px;
+list-style: none;
+}
+
+.nav-links a {
+color: var(–cream);
+text-decoration: none;
+font-size: 14px;
+font-weight: 600;
+transition: color 0.3s;
+position: relative;
+}
+
+.nav-links a::after {
+content: ‘’;
+position: absolute;
+bottom: -4px;
+right: 0;
+width: 0;
+height: 2px;
+background: var(–red);
+transition: width 0.3s;
+}
+
+.nav-links a:hover { color: var(–red); }
+.nav-links a:hover::after { width: 100%; }
+
+/* ===== HERO ===== */
+#hero {
+min-height: 100vh;
+background: var(–dark);
+display: flex;
+align-items: center;
+position: relative;
+overflow: hidden;
+padding: 80px 5% 0;
+}
+
+.hero-bg {
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse 60% 60% at 20% 50%, rgba(212,30,30,0.15) 0%, transparent 70%),
+radial-gradient(ellipse 40% 80% at 80% 30%, rgba(245,166,35,0.08) 0%, transparent 70%);
+}
+
+.hero-checkers {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image:
+linear-gradient(45deg, rgba(212,30,30,0.03) 25%, transparent 25%),
+linear-gradient(-45deg, rgba(212,30,30,0.03) 25%, transparent 25%),
+linear-gradient(45deg, transparent 75%, rgba(212,30,30,0.03) 75%),
+linear-gradient(-45deg, transparent 75%, rgba(212,30,30,0.03) 75%);
+background-size: 40px 40px;
+}
+
+.hero-content {
+position: relative;
+z-index: 2;
+max-width: 55%;
+animation: fadeUp 1s ease forwards;
+}
+
+.hero-badge {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background: rgba(212,30,30,0.2);
+border: 1px solid var(–red);
+border-radius: 30px;
+padding: 6px 18px;
+font-size: 13px;
+color: var(–red);
+margin-bottom: 24px;
+font-weight: 700;
+}
+
+.hero-title {
+font-family: ‘Bebas Neue’, cursive;
+font-size: clamp(64px, 8vw, 110px);
+line-height: 0.9;
+color: white;
+letter-spacing: 2px;
+margin-bottom: 12px;
+}
+
+.hero-title .accent { color: var(–red); }
+
+.hero-subtitle {
+font-size: 16px;
+color: rgba(245,240,232,0.7);
+line-height: 1.7;
+margin-bottom: 36px;
+max-width: 420px;
+}
+
+.hero-cta {
+display: flex;
+gap: 16px;
+flex-wrap: wrap;
+}
+
+.btn-primary {
+background: var(–red);
+color: white;
+border: none;
+padding: 14px 32px;
+border-radius: 50px;
+font-family: ‘Cairo’, sans-serif;
+font-size: 15px;
+font-weight: 700;
+cursor: pointer;
+text-decoration: none;
+transition: all 0.3s;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+}
+
+.btn-primary:hover {
+background: var(–dark-red);
+transform: translateY(-2px);
+box-shadow: 0 8px 24px rgba(212,30,30,0.4);
+}
+
+.btn-outline {
+background: transparent;
+color: white;
+border: 2px solid rgba(245,240,232,0.3);
+padding: 14px 32px;
+border-radius: 50px;
+font-family: ‘Cairo’, sans-serif;
+font-size: 15px;
+font-weight: 700;
+cursor: pointer;
+text-decoration: none;
+transition: all 0.3s;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+}
+
+.btn-outline:hover {
+border-color: var(–red);
+color: var(–red);
+transform: translateY(-2px);
+}
+
+.hero-visual {
+position: absolute;
+left: -2%;
+top: 50%;
+transform: translateY(-50%);
+width: 50%;
+animation: floatIn 1.2s ease forwards;
+opacity: 0;
+}
+
+.hero-visual img {
+width: 100%;
+filter: drop-shadow(0 30px 60px rgba(212,30,30,0.3));
+animation: float 4s ease-in-out infinite;
+}
+
+.hero-stats {
+position: absolute;
+bottom: 48px;
+right: 5%;
+display: flex;
+gap: 40px;
+z-index: 2;
+}
+
+.stat-item { text-align: center; }
+.stat-number {
+font-family: ‘Bebas Neue’, cursive;
+font-size: 36px;
+color: var(–red);
+display: block;
+}
+.stat-label {
+font-size: 12px;
+color: rgba(245,240,232,0.6);
+font-weight: 600;
+}
+
+/* ===== OFFERS ===== */
+#offers {
+background: var(–light-gray);
+color: var(–dark);
+padding: 80px 5%;
+}
+
+.section-header {
+text-align: center;
+margin-bottom: 56px;
+}
+
+.section-tag {
+display: inline-block;
+background: var(–red);
+color: white;
+font-size: 12px;
+font-weight: 700;
+letter-spacing: 3px;
+padding: 6px 20px;
+border-radius: 30px;
+margin-bottom: 16px;
+text-transform: uppercase;
+}
+
+.section-title {
+font-family: ‘Bebas Neue’, cursive;
+font-size: clamp(36px, 5vw, 56px);
+color: var(–dark);
+letter-spacing: 2px;
+margin-bottom: 12px;
+}
+
+.section-title span { color: var(–red); }
+
+.section-sub {
+color: #666;
+font-size: 15px;
+max-width: 500px;
+margin: 0 auto;
+line-height: 1.7;
+}
+
+.offers-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 24px;
+}
+
+.offer-card {
+background: white;
+border-radius: 20px;
+overflow: hidden;
+box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+transition: transform 0.3s, box-shadow 0.3s;
+position: relative;
+}
+
+.offer-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 16px 48px rgba(212,30,30,0.15);
+}
+
+.offer-img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+}
+
+.offer-img-placeholder {
+width: 100%;
+height: 200px;
+background: linear-gradient(135deg, #f8d7b0, #e8a870);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 60px;
+}
+
+.offer-tag {
+position: absolute;
+top: 16px;
+right: 16px;
+background: var(–yellow);
+color: var(–dark);
+font-size: 11px;
+font-weight: 700;
+padding: 4px 12px;
+border-radius: 20px;
+}
+
+.offer-body {
+padding: 20px 24px 24px;
+}
+
+.offer-name {
+font-family: ‘Bebas Neue’, cursive;
+font-size: 22px;
+letter-spacing: 1px;
+color: var(–dark);
+margin-bottom: 6px;
+}
+
+.offer-desc {
+font-size: 13px;
+color: #888;
+line-height: 1.5;
+margin-bottom: 16px;
+}
+
+.offer-price {
+font-family: ‘Bebas Neue’, cursive;
+font-size: 32px;
+color: var(–red);
+letter-spacing: 1px;
+}
+
+.offer-price span {
+font-family: ‘Cairo’, sans-serif;
+font-size: 14px;
+color: #888;
+font-weight: 600;
+}
+
+/* ===== MENU ===== */
+#menu {
+background: var(–dark);
+padding: 80px 5%;
+}
+
+#menu .section-title { color: white; }
+#menu .section-sub { color: rgba(255,255,255,0.5); }
+
+.menu-tabs {
+display: flex;
+gap: 12px;
+margin-bottom: 40px;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.tab-btn {
+background: rgba(255,255,255,0.05);
+border: 1px solid rgba(255,255,255,0.1);
+color: rgba(255,255,255,0.7);
+padding: 10px 24px;
+border-radius: 30px;
+font-family: ‘Cairo’, sans-serif;
+font-size: 14px;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s;
+}
+
+.tab-btn:hover, .tab-btn.active {
+background: var(–red);
+border-color: var(–red);
+color: white;
+}
+
+.menu-section { display: none; }
+.menu-section.active { display: block; }
+
+.menu-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 20px;
+}
+
+.menu-card {
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 16px;
+overflow: hidden;
+transition: all 0.3s;
+cursor: pointer;
+}
+
+.menu-card:hover {
+background: rgba(255,255,255,0.07);
+border-color: rgba(212,30,30,0.4);
+transform: translateY(-4px);
+}
+
+.menu-card-img {
+width: 100%;
+height: 180px;
+object-fit: cover;
+}
+
+.menu-card-img-placeholder {
+width: 100%;
+height: 180px;
+background: linear-gradient(135deg, rgba(212,30,30,0.2), rgba(245,166,35,0.1));
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 56px;
+}
+
+.menu-card-body {
+padding: 16px 20px 20px;
+}
+
+.menu-card-name {
+font-weight: 700;
+font-size: 16px;
+color: white;
+margin-bottom: 6px;
+}
+
+.menu-card-name-ar {
+font-size: 13px;
+color: rgba(255,255,255,0.5);
+margin-bottom: 8px;
+}
+
+.menu-card-ingredients {
+font-size: 12px;
+color: rgba(255,255,255,0.4);
+line-height: 1.5;
+margin-bottom: 14px;
+}
+
+.price-row {
+display: flex;
+gap: 8px;
+align-items: center;
+flex-wrap: wrap;
+}
+
+.price-badge {
+background: rgba(212,30,30,0.15);
+border: 1px solid rgba(212,30,30,0.3);
+color: var(–red);
+padding: 4px 10px;
+border-radius: 20px;
+font-size: 13px;
+font-weight: 700;
+}
+
+.price-size {
+font-size: 11px;
+color: rgba(255,255,255,0.4);
+display: block;
+text-align: center;
+margin-top: 2px;
+}
+
+/* ===== CRUST ===== */
+.crust-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 20px;
+}
+
+.crust-card {
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 16px;
+padding: 28px 24px;
+display: flex;
+align-items: center;
+gap: 20px;
+transition: all 0.3s;
+}
+
+.crust-card:hover {
+background: rgba(212,30,30,0.08);
+border-color: rgba(212,30,30,0.4);
+}
+
+.crust-icon {
+width: 64px;
+height: 64px;
+background: rgba(212,30,30,0.15);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 28px;
+flex-shrink: 0;
+}
+
+.crust-info h3 { color: white; font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.crust-info p { color: rgba(255,255,255,0.5); font-size: 13px; line-height: 1.5; }
+
+/* ===== REVIEWS ===== */
+#reviews {
+background: var(–light-gray);
+padding: 80px 5%;
+color: var(–dark);
+}
+
+.reviews-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 24px;
+}
+
+.review-card {
+background: white;
+border-radius: 20px;
+padding: 28px;
+box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+position: relative;
+transition: transform 0.3s;
+}
+
+.review-card:hover { transform: translateY(-4px); }
+
+.review-card::before {
+content: ‘”’;
+position: absolute;
+top: 16px;
+left: 24px;
+font-family: ‘Bebas Neue’, cursive;
+font-size: 72px;
+color: rgba(212,30,30,0.1);
+line-height: 1;
+}
+
+.stars {
+display: flex;
+gap: 4px;
+margin-bottom: 14px;
+direction: ltr;
+}
+
+.star { color: var(–yellow); font-size: 18px; }
+
+.review-text {
+font-size: 14px;
+line-height: 1.7;
+color: var(–text);
+margin-bottom: 20px;
+position: relative;
+z-index: 1;
+}
+
+.review-author {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.reviewer-avatar {
+width: 44px;
+height: 44px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(–red), var(–yellow));
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 18px;
+color: white;
+font-weight: 700;
+}
+
+.reviewer-name {
+font-weight: 700;
+font-size: 14px;
+color: var(–dark);
+}
+
+.reviewer-date {
+font-size: 12px;
+color: #aaa;
+}
+
+/* ===== CONTACT ===== */
+#contact {
+background: var(–dark);
+padding: 80px 5%;
+}
+
+.contact-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 48px;
+align-items: start;
+}
+
+.contact-info h2 {
+font-family: ‘Bebas Neue’, cursive;
+font-size: 42px;
+color: white;
+letter-spacing: 2px;
+margin-bottom: 12px;
+line-height: 1;
+}
+
+.contact-info h2 span { color: var(–red); }
+
+.contact-info p {
+color: rgba(255,255,255,0.6);
+font-size: 14px;
+line-height: 1.7;
+margin-bottom: 32px;
+}
+
+.contact-items { display: flex; flex-direction: column; gap: 16px; }
+
+.contact-item {
+display: flex;
+align-items: center;
+gap: 16px;
+padding: 16px 20px;
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 12px;
+transition: border-color 0.3s;
+text-decoration: none;
+}
+
+.contact-item:hover { border-color: var(–red); }
+
+.contact-item-icon {
+width: 44px;
+height: 44px;
+background: rgba(212,30,30,0.15);
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+flex-shrink: 0;
+}
+
+.contact-item-label {
+font-size: 11px;
+color: rgba(255,255,255,0.4);
+font-weight: 600;
+letter-spacing: 1px;
+text-transform: uppercase;
+display: block;
+margin-bottom: 3px;
+}
+
+.contact-item-value {
+font-size: 14px;
+color: white;
+font-weight: 600;
+}
+
+.map-container {
+border-radius: 20px;
+overflow: hidden;
+border: 2px solid rgba(255,255,255,0.08);
+height: 420px;
+}
+
+.map-container iframe {
+width: 100%;
+height: 100%;
+border: none;
+}
+
+/* ===== SOCIAL LINKS ===== */
+.social-links {
+display: flex;
+gap: 12px;
+margin-top: 20px;
+}
+
+.social-btn {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+padding: 12px 24px;
+border-radius: 50px;
+text-decoration: none;
+font-size: 14px;
+font-weight: 700;
+font-family: ‘Cairo’, sans-serif;
+transition: all 0.3s;
+}
+
+.social-instagram {
+background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+color: white;
+}
+
+.social-whatsapp {
+background: #25D366;
+color: white;
+}
+
+.social-btn:hover {
+transform: translateY(-2px);
+filter: brightness(1.1);
+box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+/* ===== FOOTER ===== */
+footer {
+background: #111;
+padding: 32px 5%;
+text-align: center;
+border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-logo {
+font-family: ‘Bebas Neue’, cursive;
+font-size: 28px;
+color: var(–red);
+letter-spacing: 3px;
+margin-bottom: 10px;
+}
+
+footer p {
+color: rgba(255,255,255,0.3);
+font-size: 13px;
+}
+
+/* ===== MEAL DEAL HERO CARD ===== */
+.meal-deal-banner {
+background: linear-gradient(135deg, var(–red), var(–dark-red));
+border-radius: 20px;
+padding: 32px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 24px;
+margin-bottom: 24px;
+flex-wrap: wrap;
+}
+
+.meal-deal-text h3 {
+font-family: ‘Bebas Neue’, cursive;
+font-size: 28px;
+letter-spacing: 2px;
+color: white;
+margin-bottom: 8px;
+}
+
+.meal-deal-text p {
+color: rgba(255,255,255,0.8);
+font-size: 14px;
+line-height: 1.6;
+}
+
+.meal-deal-price {
+font-family: ‘Bebas Neue’, cursive;
+font-size: 64px;
+color: var(–yellow);
+line-height: 1;
+text-align: center;
+}
+
+.meal-deal-price small {
+font-family: ‘Cairo’, sans-serif;
+font-size: 14px;
+display: block;
+color: rgba(255,255,255,0.7);
+font-weight: 600;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatIn {
+from { opacity: 0; transform: translateY(-50%) translateX(-30px); }
+to { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+@keyframes float {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-16px); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+.hero-content { max-width: 100%; }
+.hero-visual { display: none; }
+.hero-stats { flex-wrap: wrap; gap: 24px; bottom: 24px; }
+.contact-grid { grid-template-columns: 1fr; }
+nav .nav-links { display: none; }
+.nav-logo span { font-size: 18px; }
+}
+
+/* Scroll reveal */
+.reveal {
+opacity: 0;
+transform: translateY(24px);
+transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+opacity: 1;
+transform: translateY(0);
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <div class="nav-logo">
+    <div class="logo-icon">🍕</div>
+    <span>BRESHTA PIZZA</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#offers">العروض</a></li>
+    <li><a href="#menu">القائمة</a></li>
+    <li><a href="#reviews">التقييمات</a></li>
+    <li><a href="#contact">تواصل معنا</a></li>
+  </ul>
+  <a href="https://wa.me/962796468272" class="btn-primary" style="padding:10px 24px;font-size:13px;">
+    🛵 اطلب الآن
+  </a>
+</nav>
+
+<!-- HERO -->
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-checkers"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">🍕 منذ عام 2000 · Since 2000</div>
+    <h1 class="hero-title">
+      <span class="accent">BRESHTA</span><br>
+      PIZZA
+    </h1>
+    <p class="hero-subtitle">
+      أفضل بيتزا في المدينة — طازجة، لذيذة، بعجينات متنوعة وأسعار لا تُقاوم
+    </p>
+    <div class="hero-cta">
+      <a href="#menu" class="btn-primary">🍕 شوف القائمة</a>
+      <a href="#offers" class="btn-outline">🎉 العروض الحالية</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-number">+25</span>
+      <span class="stat-label">سنة خبرة</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">55K</span>
+      <span class="stat-label">متابع</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">3</span>
+      <span class="stat-label">فروع</span>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERS -->
+
+<section id="offers">
+  <div class="section-header reveal">
+    <div class="section-tag">عروض التوفير</div>
+    <h2 class="section-title">العروض <span>الحالية</span></h2>
+    <p class="section-sub">اختر عرضك المفضل واستمتع بأفضل الأسعار</p>
+  </div>
+
+  <!-- Meal Deal Banner -->
+
+  <div class="meal-deal-banner reveal">
+    <div class="meal-deal-text">
+      <h3>🍕 وجبة فردية — INDIVIDUAL MEAL</h3>
+      <p>بيتزا حجم صغير + 2 خبز بالثوم + 1 مشروب غازي</p>
+    </div>
+    <div>
+      <div class="meal-deal-price">3.50<small>د.أ · Meal Deals</small></div>
+    </div>
+  </div>
+
+  <div class="offers-grid reveal">
+    <!-- 2 Medium -->
+    <div class="offer-card">
+      <div class="offer-img-placeholder">🍕🍕</div>
+      <div class="offer-tag">Value Offers</div>
+      <div class="offer-body">
+        <div class="offer-name">2 MEDIUM PIZZA</div>
+        <div class="offer-desc">بيتزتان بحجم وسط من اختيارك</div>
+        <div class="offer-price">9.00 <span>د.أ</span></div>
+      </div>
+    </div>
+
+```
+<!-- 2 Large -->
+<div class="offer-card">
+  <div class="offer-img-placeholder">🍕🍕</div>
+  <div class="offer-tag">Value Offers</div>
+  <div class="offer-body">
+    <div class="offer-name">2 LARGE PIZZA</div>
+    <div class="offer-desc">بيتزتان بحجم كبير من اختيارك</div>
+    <div class="offer-price">12.00 <span>د.أ</span></div>
+  </div>
+</div>
+
+<!-- 3 Small -->
+<div class="offer-card">
+  <div class="offer-img-placeholder">🍕🍕🍕</div>
+  <div class="offer-tag">Value Offers</div>
+  <div class="offer-body">
+    <div class="offer-name">3 SMALL PIZZA</div>
+    <div class="offer-desc">ثلاث بيتزات صغيرة من اختيارك</div>
+    <div class="offer-price">6.50 <span>د.أ</span></div>
+  </div>
+</div>
+
+<!-- 3 Medium -->
+<div class="offer-card">
+  <div class="offer-img-placeholder">🍕🍕🍕</div>
+  <div class="offer-tag">Value Offers</div>
+  <div class="offer-body">
+    <div class="offer-name">3 MEDIUM PIZZA</div>
+    <div class="offer-desc">ثلاث بيتزات وسط من اختيارك</div>
+    <div class="offer-price">11.60 <span>د.أ</span></div>
+  </div>
+</div>
+
+<!-- 3 Large -->
+<div class="offer-card">
+  <div class="offer-img-placeholder">🍕🍕🍕</div>
+  <div class="offer-tag">Value Offers</div>
+  <div class="offer-body">
+    <div class="offer-name">3 LARGE PIZZA</div>
+    <div class="offer-desc">ثلاث بيتزات كبيرة من اختيارك</div>
+    <div class="offer-price">17.00 <span>د.أ</span></div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- MENU -->
+
+<section id="menu">
+  <div class="section-header reveal">
+    <div class="section-tag" style="background:var(--yellow);color:var(--dark);">القائمة الكاملة</div>
+    <h2 class="section-title" style="color:white;">قائمة <span>برشتا</span></h2>
+    <p class="section-sub">اكتشف تشكيلتنا المتنوعة من البيتزا بأحجام صغير، وسط، وكبير</p>
+  </div>
+
+  <div class="menu-tabs">
+    <button class="tab-btn active" onclick="showTab('pizzas')">🍕 البيتزا</button>
+    <button class="tab-btn" onclick="showTab('crusts')">🥖 أنواع العجين</button>
+  </div>
+
+  <!-- Pizzas Tab -->
+
+  <div id="pizzas" class="menu-section active">
+    <div class="menu-grid">
+
+```
+  <div class="menu-card">
+    <div class="menu-card-img-placeholder">🍕</div>
+    <div class="menu-card-body">
+      <div class="menu-card-name">PEPPERONI PIZZA</div>
+      <div class="menu-card-name-ar">بيتزا ببروني</div>
+      <div class="menu-card-ingredients">صوص بيتزا، جبنة، ببروني</div>
+      <div class="price-row">
+        <div><div class="price-badge">3.00 د.أ</div><span class="price-size">صغير</span></div>
+        <div><div class="price-badge">5.00 د.أ</div><span class="price-size">وسط</span></div>
+        <div><div class="price-badge">7.00 د.أ</div><span class="price-size">كبير</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <div class="menu-card-img-placeholder">🍕</div>
+    <div class="menu-card-body">
+      <div class="menu-card-name">MEAT LOVERS</div>
+      <div class="menu-card-name-ar">محبي اللحوم</div>
+      <div class="menu-card-ingredients">صوص بيتزا، جبنة، ببروني، بيف</div>
+      <div class="price-row">
+        <div><div class="price-badge">3.00 د.أ</div><span class="price-size">صغير</span></div>
+        <div><div class="price-badge">5.00 د.أ</div><span class="price-size">وسط</span></div>
+        <div><div class="price-badge">7.00 د.أ</div><span class="price-size">كبير</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <div class="menu-card-img-placeholder">🍕</div>
+    <div class="menu-card-body">
+      <div class="menu-card-name">CHICKEN ALFREDO</div>
+      <div class="menu-card-name-ar">الفريدو دجاج</div>
+      <div class="menu-card-ingredients">صوص الفريدو، جبنة، بصل، فطر، دجاج، ريحان</div>
+      <div class="price-row">
+        <div><div class="price-badge">3.00 د.أ</div><span class="price-size">صغير</span></div>
+        <div><div class="price-badge">5.00 د.أ</div><span class="price-size">وسط</span></div>
+        <div><div class="price-badge">7.00 د.أ</div><span class="price-size">كبير</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <div class="menu-card-img-placeholder">🍕</div>
+    <div class="menu-card-body">
+      <div class="menu-card-name">BBQ RANCH</div>
+      <div class="menu-card-name-ar">باربيكيو رانش</div>
+      <div class="menu-card-ingredients">صوص رانش، جبنة، دجاج مشوي، بصل، فطر، صوص باربيكيو، ريحان</div>
+      <div class="price-row">
+        <div><div class="price-badge">3.00 د.أ</div><span class="price-size">صغير</span></div>
+        <div><div class="price-badge">5.00 د.أ</div><span class="price-size">وسط</span></div>
+        <div><div class="price-badge">7.00 د.أ</div><span class="price-size">كبير</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <div class="menu-card-img-placeholder">🍕</div>
+    <div class="menu-card-body">
+      <div class="menu-card-name">BBQ PIZZA</div>
+      <div class="menu-card-name-ar">بيتزا باربيكيو</div>
+      <div class="menu-card-ingredients">صوص باربيكيو، جبنة، دجاج مشوي، بصل، ريحان</div>
+      <div class="price-row">
+        <div><div class="price-badge">3.00 د.أ</div><span class="price-size">صغير</span></div>
+        <div><div class="price-badge">5.00 د.أ</div><span class="price-size">وسط</span></div>
+        <div><div class="price-badge">7.00 د.أ</div><span class="price-size">كبير</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <div class="menu-card-img-placeholder">🍕</div>
+    <div class="menu-card-body">
+      <div class="menu-card-name">CHICKEN PIZZA</div>
+      <div class="menu-card-name-ar">بيتزا الدجاج</div>
+      <div class="menu-card-ingredients">صوص بيتزا، جبنة، دجاج مشوي، فلفل أخضر، بندورة، بصل</div>
+      <div class="price-row">
+        <div><div class="price-badge">3.00 د.أ</div><span class="price-size">صغير</span></div>
+        <div><div class="price-badge">5.00 د.أ</div><span class="price-size">وسط</span></div>
+        <div><div class="price-badge">7.00 د.أ</div><span class="price-size">كبير</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <div class="menu-card-img-placeholder">🍕</div>
+    <div class="menu-card-body">
+      <div class="menu-card-name">ZINGER PIZZA</div>
+      <div class="menu-card-name-ar">بيتزا زنجر</div>
+      <div class="menu-card-ingredients">صوص بيتزا، جبنة، زنجر، فطر، هلابينو، صوص رانش، ريحان</div>
+      <div class="price-row">
+        <div><div class="price-badge">3.00 د.أ</div><span class="price-size">صغير</span></div>
+        <div><div class="price-badge">5.00 د.أ</div><span class="price-size">وسط</span></div>
+        <div><div class="price-badge">7.00 د.أ</div><span class="price-size">كبير</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <div class="menu-card-img-placeholder">🍕</div>
+    <div class="menu-card-body">
+      <div class="menu-card-name">SPICY RANCH</div>
+      <div class="menu-card-name-ar">سبايسي رانش</div>
+      <div class="menu-card-ingredients">صوص رانش، جبنة، دجاج مشوي، فطر، بندورة، هلابينو، ريحان</div>
+      <div class="price-row">
+        <div><div class="price-badge">3.00 د.أ</div><span class="price-size">صغير</span></div>
+        <div><div class="price-badge">5.00 د.أ</div><span class="price-size">وسط</span></div>
+        <div><div class="price-badge">7.00 د.أ</div><span class="price-size">كبير</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <div class="menu-card-img-placeholder">🍕</div>
+    <div class="menu-card-body">
+      <div class="menu-card-name">MARGHERITA PIZZA</div>
+      <div class="menu-card-name-ar">بيتزا مارغريتا</div>
+      <div class="menu-card-ingredients">صوص بيتزا، جبنة، ريحان</div>
+      <div class="price-row">
+        <div><div class="price-badge">3.00 د.أ</div><span class="price-size">صغير</span></div>
+        <div><div class="price-badge">5.00 د.أ</div><span class="price-size">وسط</span></div>
+        <div><div class="price-badge">7.00 د.أ</div><span class="price-size">كبير</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-card" style="border-color: rgba(245,166,35,0.3);">
+    <div class="menu-card-img-placeholder" style="background:linear-gradient(135deg,rgba(245,166,35,0.2),rgba(212,30,30,0.1))">🧀</div>
+    <div class="menu-card-body">
+      <div class="menu-card-name">CREAMY CHEESE</div>
+      <div class="menu-card-name-ar">كريمي تشيز</div>
+      <div class="menu-card-ingredients">صوص بيتزا، جبنة كريمي، بندورة كرزية، ريحان</div>
+      <div class="price-row">
+        <div><div class="price-badge" style="background:rgba(245,166,35,0.15);border-color:rgba(245,166,35,0.3);color:var(--yellow)">3.50 د.أ</div><span class="price-size">صغير</span></div>
+        <div><div class="price-badge" style="background:rgba(245,166,35,0.15);border-color:rgba(245,166,35,0.3);color:var(--yellow)">6.00 د.أ</div><span class="price-size">وسط</span></div>
+        <div><div class="price-badge" style="background:rgba(245,166,35,0.15);border-color:rgba(245,166,35,0.3);color:var(--yellow)">8.50 د.أ</div><span class="price-size">كبير</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- Crusts Tab -->
+
+  <div id="crusts" class="menu-section">
+    <div class="crust-grid">
+      <div class="crust-card">
+        <div class="crust-icon">🥖</div>
+        <div class="crust-info">
+          <h3>CLASSIC · كلاسيكية</h3>
+          <p>العجينة الأصلية المقرمشة من الخارج، طرية من الداخل</p>
+        </div>
+      </div>
+      <div class="crust-card">
+        <div class="crust-icon">🧀</div>
+        <div class="crust-info">
+          <h3>CHEESY BITES · أصابع الجبنة</h3>
+          <p>حواف محشوة بالجبنة — مميزة ولذيذة مع كل قطعة</p>
+        </div>
+      </div>
+      <div class="crust-card">
+        <div class="crust-icon">🥐</div>
+        <div class="crust-info">
+          <h3>STUFFED CRUST · عجينة محشية</h3>
+          <p>حواف مطوية ومحشوة بالجبنة الممتدة</p>
+        </div>
+      </div>
+      <div class="crust-card">
+        <div class="crust-icon">🍞</div>
+        <div class="crust-info">
+          <h3>THICK & FLUFFY · سميكة وهشة</h3>
+          <p>عجينة سميكة فواره من الداخل، مثالية لعشاق الخبز</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+
+<section id="reviews">
+  <div class="section-header reveal">
+    <div class="section-tag">آراء العملاء</div>
+    <h2 class="section-title">ماذا يقولون <span>عنا</span></h2>
+    <p class="section-sub">أكثر من 55,000 متابع لا يخطئون — اسمع من عملائنا المميزين</p>
+  </div>
+
+  <div class="reviews-grid">
+
+```
+<div class="review-card reveal">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="review-text">
+    والله من أفضل البيتزا اللي جربتها! العجينة خفيفة ومقرمشة، والمكونات طازجة. الأسعار حلوة جداً بالنسبة للجودة.
+  </p>
+  <div class="review-author">
+    <div class="reviewer-avatar">أ</div>
+    <div>
+      <div class="reviewer-name">أحمد الخوالدة</div>
+      <div class="reviewer-date">منذ أسبوع</div>
+    </div>
+  </div>
+</div>
+
+<div class="review-card reveal">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="review-text">
+    جربت الفريدو دجاج وكانت روعة! الصوص كريمي ومحبب، الدجاج مشوي ولذيذ. التوصيل كان سريع. بكيد راجع مرة ثانية!
+  </p>
+  <div class="review-author">
+    <div class="reviewer-avatar">م</div>
+    <div>
+      <div class="reviewer-name">مريم السعدي</div>
+      <div class="reviewer-date">منذ 3 أيام</div>
+    </div>
+  </div>
+</div>
+
+<div class="review-card reveal">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="review-text">
+    الأولاد بحبوا بيتزا برشتا كثير! خصوصاً عرض الثلاث بيتزات الصغيرات بـ 6.50 — قيمة ممتازة للعائلة.
+  </p>
+  <div class="review-author">
+    <div class="reviewer-avatar">س</div>
+    <div>
+      <div class="reviewer-name">سامر العمري</div>
+      <div class="reviewer-date">منذ أسبوعين</div>
+    </div>
+  </div>
+</div>
+
+<div class="review-card reveal">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="review-text">
+    عجينة المحشية كانت تجربة جديدة عليّ وكانت مذهلة! الجبنة تسيل من الحواف — ماشاء الله عليهم.
+  </p>
+  <div class="review-author">
+    <div class="reviewer-avatar">ن</div>
+    <div>
+      <div class="reviewer-name">نور العجلوني</div>
+      <div class="reviewer-date">منذ 5 أيام</div>
+    </div>
+  </div>
+</div>
+
+<div class="review-card reveal">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="review-text">
+    خدمة ممتازة والطعام يوصل ساخن. الباربيكيو رانش من أفضل الطعمات اللي ذقتها في بيتزا. أنصح الكل يجربهم!
+  </p>
+  <div class="review-author">
+    <div class="reviewer-avatar">ع</div>
+    <div>
+      <div class="reviewer-name">عمر الحمداني</div>
+      <div class="reviewer-date">منذ يومين</div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h2>تواصل <span>معنا</span></h2>
+      <p>يسعدنا خدمتك في أي وقت — اتصل بنا أو تواصل عبر واتساب لتقديم طلبك أو الاستفسار</p>
+
+```
+  <div class="contact-items">
+    <a href="tel:0796468272" class="contact-item">
+      <div class="contact-item-icon">📞</div>
+      <div>
+        <span class="contact-item-label">الهاتف</span>
+        <span class="contact-item-value">0796468272</span>
+      </div>
+    </a>
+
+    <a href="https://wa.me/962796468272" target="_blank" class="contact-item">
+      <div class="contact-item-icon">💬</div>
+      <div>
+        <span class="contact-item-label">واتساب</span>
+        <span class="contact-item-value">اضغط للتواصل عبر واتساب</span>
+      </div>
+    </a>
+
+    <div class="contact-item">
+      <div class="contact-item-icon">📍</div>
+      <div>
+        <span class="contact-item-label">الفروع</span>
+        <span class="contact-item-value">طبربور · المدينة المنورة · مقابلين</span>
+      </div>
+    </div>
+
+    <a href="https://breshta.com" target="_blank" class="contact-item">
+      <div class="contact-item-icon">🌐</div>
+      <div>
+        <span class="contact-item-label">الموقع الرسمي</span>
+        <span class="contact-item-value">breshta.com</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="social-links">
+    <a href="https://www.instagram.com/breshtajo" target="_blank" class="social-btn social-instagram">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      انستاغرام
+    </a>
+    <a href="https://wa.me/962796468272" target="_blank" class="social-btn social-whatsapp">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      واتساب
+    </a>
+  </div>
+</div>
+
+<div class="map-container reveal">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108876.13578831!2d35.8553!3d31.9539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b5e9b4a8b4b4b%3A0x0!2zVGFiYXJib3VyLCBBbW1hbg!5e0!3m2!1sen!2sjo!4v1234567890"
+    allowfullscreen=""
+    loading="lazy">
+  </iframe>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-logo">BRESHTA PIZZA</div>
+  <p>© 2025 برشتا بيتزا · منذ عام 2000 · جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+  // Tab switching
+  function showTab(id) {
+    document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Stagger children
+  document.querySelectorAll('.offers-grid, .menu-grid, .reviews-grid, .crust-grid').forEach(grid => {
+    Array.from(grid.children).forEach((child, i) => {
+      child.classList.add('reveal');
+      child.style.transitionDelay = (i * 0.08) + 's';
+      observer.observe(child);
+    });
+  });
+</script>
+
+</body>
+</html>
